@@ -8,7 +8,7 @@ Code for gear design MEE 342
 - Material Properties
   - Poisson Ratio for Pinion/Gear
   - Elastic Modulus for Pinion/Gear (ksi)
-  - Density (lb/ft^3)
+  - Density for Pinion/Gear (lb/ft^3)
 
 - Project Inputs
   - Load (rev/min)
@@ -30,3 +30,5 @@ Code for gear design MEE 342
 - Bending, Contact stresses in gear/pinion
 - Bending, Contact factors of safety
 - Weight
+
+# Assumptions

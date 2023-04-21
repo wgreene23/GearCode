@@ -16,11 +16,12 @@ F = input("Face Width (inches):"); % Face Width
 % Pinion Material
 nu_p = input("Poisson's ratio of pinion:"); % Poisson's ratio of pinion
 E_p = input("Elastic Modulus of pinion (ksi):"); % Elastic Modulus of pinion
+density_p = input("Desnity of pinion material (lb/ft^3):"); %density of pinion
 
 % Gear Material
 nu_g = input("Poisson's ratio of gear:"); % Poisson's ratio of gear
 E_g = input("Elastic Modulus of gear (ksi):"); % Elastic Modulus of gear
-
+density_g = input("Desnity of gear material (lb/ft^3):"); %density of gear
 %% A Priori Decisions
 
 % Function
@@ -49,13 +50,22 @@ Q_v = input("Quality Number (from 1 to 6):"); % Quality Number
 %% Auxilliary Equations
 
 
-% Pinion Diameter
+% Pinion Dimensions
 
-d_p = N_p/P_d;
+d_p = N_p/P_d; % inches
 
-% Gear Diameter
+d_ref_p = (P_d * N_p)/12; % ref circle diameter converted to feet
 
-d_g = N_g/P_d;
+Vol_p = (pi/4) * (d_ref_p^2) * F; % used for finding weight
+
+% Gear Dimensions
+
+d_g = N_g/P_d; % inches
+
+d_ref_g = (P_d * N_g)/12; % ref circle diameter converted to feet
+
+Vol_g = (pi/4) * (d_ref_g^2) * F; % used for finding weight
+
 
 % Various Factors for Calculations:
 
@@ -336,6 +346,8 @@ SafetyFactorBendingGear = ((S_t)*(Y_n))/((K_t)*(K_r)*BendingStressGear); % Safet
  
 SafetyFactorContactGear = ((S_c)*(Z_n)*(C_h))/((K_t)*(K_r)*ContactStressGear); % Safety Factor for Contact Stress for gear
 
+GearWeight = density_g * Vol_g % gear weight in lbs
+
 % Pinion
 BendingStressPinion = (W_t)*(K_o)*(K_v)*(K_sp)*((P_d)/F)*((K_m)*(K_b)/J_p); % AGMA Bending Stress for pinion
 
@@ -345,6 +357,7 @@ SafetyFactorBendingPinion = ((S_t)*(Y_n))/((K_t)*(K_r)*BendingStressPinion); % S
 
 SafetyFactorContactPinion = ((S_c)*(Z_n)*(C_h))/((K_t)*(K_r)*ContactStressPinion); % Safety Factor for Contact Stress for pinion
 
+PinionWeight = density_p * Vol_p % pinion weight in lbs
 
 %% Analysis
 

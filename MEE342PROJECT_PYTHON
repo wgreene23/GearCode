@@ -124,4 +124,56 @@ else:
     raise ValueError('invalid selection')
 
 # Statements for Gear Lewis Form Factor:
-if N_g == 
+if N_g == 12:
+    Y_g = LewisFormFactorMatrix[0,1]
+elif N_g == 13:
+    Y_g = LewisFormFactorMatrix[1,1]
+elif N_g == 14:
+    Y_g = LewisFormFactorMatrix[2,1]
+elif N_g == 15:
+    Y_g = LewisFormFactorMatrix[3,1]
+elif N_g == 16:
+    Y_g = LewisFormFactorMatrix[4,1]
+elif N_g == 17:
+    Y_g = LewisFormFactorMatrix[5,1]
+elif N_g == 18:
+    Y_g = LewisFormFactorMatrix[6,1]
+elif N_g == 19:
+    Y_g = LewisFormFactorMatrix[7,1]
+elif N_g == 20:
+    Y_g = LewisFormFactorMatrix[8,1]
+elif N_g == 21:
+    Y_g = LewisFormFactorMatrix[9,1]
+elif N_g == 22:
+    Y_g = LewisFormFactorMatrix[10,1]
+elif N_g == 24:
+    Y_g = LewisFormFactorMatrix[11,1]
+elif N_g == 26:
+    Y_g = LewisFormFactorMatrix[12,1]
+elif N_g == 28:
+    Y_g = LewisFormFactorMatrix[13,1]
+elif N_g == 30:
+    Y_g = LewisFormFactorMatrix[14,1]
+elif N_g == 34:
+    Y_g = LewisFormFactorMatrix[15,1]
+elif N_g == 38:
+    Y_g = LewisFormFactorMatrix[16,1]
+elif N_g == 43:
+    Y_g = LewisFormFactorMatrix[17,1]
+elif N_g == 50:
+    Y_g = LewisFormFactorMatrix[18,1]
+elif N_g == 60:
+    Y_g = LewisFormFactorMatrix[19,1]
+elif N_g == 75:
+    Y_g = LewisFormFactorMatrix[20,1]
+elif N_g == 100:
+    Y_g = LewisFormFactorMatrix[21,1]
+elif N_g == 150:
+    Y_g = LewisFormFactorMatrix[22,1]
+elif N_g == 300:
+    Y_g = LewisFormFactorMatrix[23,1]
+elif N_g == 400:
+    Y_g = LewisFormFactorMatrix[24,1]
+else:
+    raise ValueError('invalid selection')
+

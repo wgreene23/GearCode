@@ -15,9 +15,12 @@ Code for gear design MEE 342
   - Reliability
   - Overload Factor
 
-- Gear Inputs
+- Gear/Pinion Inputs
   - Normal Pressure Angle (degrees) (20º is common in industry!)
   - Number of teeth on pinion
   - Number of teeth on gear 
   - Root fillet radius (inches)
   - Quality Number
+  - Distance between gear and Midway
+  - Total Distance between centerline of bearing
+  - Geometry factors for gear/pinion (REFERENCE ATTACHED TABLE IN REPO)

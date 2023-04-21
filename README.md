@@ -14,7 +14,7 @@ Code for gear design MEE 342
   - Load (rev/min)
   - Horsepower
   - Reliability
-  - Overload Factor
+  - Overload Factor (REFERENCE ATTACHED TABLE IN REPO FILES)
 
 - Gear/Pinion Inputs
   - Normal Pressure Angle (degrees) (20º is common in industry!)

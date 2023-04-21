@@ -1,0 +1,64 @@
+import numpy as np
+
+# Diametral Pitch and Face width
+P_d = float(input("Diametral Pitch (teeth/inch):"))  # Diametral Pitch
+F = float(input("Face Width (inches):"))  # Face Width
+
+# Pinion Material
+nu_p = float(input("Poisson's ratio of pinion:"))  # Poisson's ratio of pinion
+E_p = float(input("Elastic Modulus of pinion (ksi):"))  # Elastic Modulus of pinion
+density_p = float(input("Density of pinion material (lb/ft^3):"))  # density of pinion
+
+# Gear Material
+nu_g = float(input("Poisson's ratio of gear:"))  # Poisson's ratio of gear
+E_g = float(input("Elastic Modulus of gear (ksi):"))  # Elastic Modulus of gear
+density_g = float(input("Density of gear material (lb/ft^3):"))  # density of gear
+
+# Function
+H = float(input("Load (rev/min):"))  # Load
+hp = float(input("Horsepower (hp):"))  # Horsepower
+R = float(input("Reliability:"))  # Reliability
+K_o = float(input("Overload Factor (obtain from table of overload factors):"))  # Overload Factor 
+
+# Unquantifiable Risk
+n_d = float(input("Design Factor:"))  # Design Factor
+
+# Tooth System
+phi_n = float(input("Normal Pressure Angle (in degrees):"))  # Normal Pressure Angle
+N_p = int(input("Number of teeth on pinion:"))  # Number of teeth on pinion
+N_g = int(input("Number of teeth on gear:"))  # Number of teeth on gear
+
+adn = 1/P_d  # addendum
+dedn = 1.25/P_d  # dedendum
+
+rf = float(input("Root fillet radius (in inches):"))  # root fillet radius
+
+# Quality Number
+Q_v = int(input("Quality Number (from 1 to 6):"))  # Quality Number
+
+# Pinion Dimensions
+d_p = N_p/P_d  # inches
+d_ref_p = (P_d * N_p)/12  # ref circle diameter converted to feet
+Vol_p = (np.pi/4) * (d_ref_p**2) * F  # used for finding weight
+
+# Gear Dimensions
+d_g = N_g/P_d  # inches
+d_ref_g = (P_d * N_g)/12  # ref circle diameter converted to feet
+Vol_g = (np.pi/4) * (d_ref_g**2) * F  # used for finding weight
+
+# Various Factors for Calculations:
+
+# Dynamic Factor Pinion
+V_t = (np.pi/12)*(d_p*N_p)  # Pitch Line Velocity
+B = 0.25*(12-Q_v)**(2/3)
+A = 50+56*(1-B)
+K_v = ((A+(V_t)**(1/2))/A)**(B)  # Dynamic Factor
+
+# Transmitted Load
+W_t = H/V_t
+
+# Size Factor
+t = 1.2*(adn+dedn)  # assuming m_b to be 1.2
+l = (adn + dedn)  # height of tooth
+
+LewisFormFactorMatrix = np.array([[12, 0.245], [13, 0.261], [14, 0.277], [15,

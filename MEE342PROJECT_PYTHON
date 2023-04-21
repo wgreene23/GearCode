@@ -61,4 +61,67 @@ W_t = H/V_t
 t = 1.2*(adn+dedn)  # assuming m_b to be 1.2
 l = (adn + dedn)  # height of tooth
 
-LewisFormFactorMatrix = np.array([[12, 0.245], [13, 0.261], [14, 0.277], [15,
+import numpy as np
+
+LewisFormFactorMatrix = np.array([[12, 0.245], [13, 0.261], [14, 0.277], [15, 0.29], [16, 0.296], [17, 0.303], 
+                                  [18, 0.309], [19, 0.314], [20, 0.322], [21, 0.328], [22, 0.331], [24, 0.337], 
+                                  [26, 0.346], [28, 0.353], [30, 0.359], [34, 0.371], [38, 0.384], [43, 0.397], 
+                                  [50, 0.409], [60, 0.422], [75, 0.435], [100, 0.447], [150, 0.46], [300, 0.472], 
+                                  [400, 0.480]])
+
+# Statements for Pinion Lewis Form Factor:
+if N_p == 12:
+    Y_p = LewisFormFactorMatrix[0,1]
+elif N_p == 13:
+    Y_p = LewisFormFactorMatrix[1,1]
+elif N_p == 14:
+    Y_p = LewisFormFactorMatrix[2,1]
+elif N_p == 15:
+    Y_p = LewisFormFactorMatrix[3,1]
+elif N_p == 16:
+    Y_p = LewisFormFactorMatrix[4,1]
+elif N_p == 17:
+    Y_p = LewisFormFactorMatrix[5,1]
+elif N_p == 18:
+    Y_p = LewisFormFactorMatrix[6,1]
+elif N_p == 19:
+    Y_p = LewisFormFactorMatrix[7,1]
+elif N_p == 20:
+    Y_p = LewisFormFactorMatrix[8,1]
+elif N_p == 21:
+    Y_p = LewisFormFactorMatrix[9,1]
+elif N_p == 22:
+    Y_p = LewisFormFactorMatrix[10,1]
+elif N_p == 24:
+    Y_p = LewisFormFactorMatrix[11,1]
+elif N_p == 26:
+    Y_p = LewisFormFactorMatrix[12,1]
+elif N_p == 28:
+    Y_p = LewisFormFactorMatrix[13,1]
+elif N_p == 30:
+    Y_p = LewisFormFactorMatrix[14,1]
+elif N_p == 34:
+    Y_p = LewisFormFactorMatrix[15,1]
+elif N_p == 38:
+    Y_p = LewisFormFactorMatrix[16,1]
+elif N_p == 43:
+    Y_p = LewisFormFactorMatrix[17,1]
+elif N_p == 50:
+    Y_p = LewisFormFactorMatrix[18,1]
+elif N_p == 60:
+    Y_p = LewisFormFactorMatrix[19,1]
+elif N_p == 75:
+    Y_p = LewisFormFactorMatrix[20,1]
+elif N_p == 100:
+    Y_p = LewisFormFactorMatrix[21,1]
+elif N_p == 150:
+    Y_p = LewisFormFactorMatrix[22,1]
+elif N_p == 300:
+    Y_p = LewisFormFactorMatrix[23,1]
+elif N_p == 400:
+    Y_p = LewisFormFactorMatrix[24,1]
+else:
+    raise ValueError('invalid selection')
+
+# Statements for Gear Lewis Form Factor:
+if N_g == 

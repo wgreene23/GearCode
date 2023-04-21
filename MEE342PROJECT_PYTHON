@@ -186,3 +186,47 @@ elif N_g == 400:
 else:
     raise ValueError('invalid selection')
 
+# Size factor for pinion
+K_sp = 1.192 * ((F / d_p) * (Y_p)**(1/2))**(0.0535)
+
+# Size factor for gear
+K_sg = 1.192 * ((F / d_p) * (Y_g)**(1/2))**(0.0535)
+
+# Load Distribution Factor
+C_mc = float(input("1.0 (uncrowned) or 0.8 (crowned):"))
+
+# Pinion Proportion Factor
+if F <= 1:
+    C_pf = ((F / (10 * d_p)) - 0.025)
+elif 1 < F <= 17:
+    C_pf = ((F / (10 * d_p)) - 0.0375 + 0.0125 * F)
+elif 17 < F <= 40:
+    C_pf = ((F / (10 * d_p)) - 0.1109 + 0.0207 * F - 0.000228 * (F)**(2))
+
+# Pinion Proportion Modifier
+s_1 = float(input("distance between gear and midway:"))
+s = float(input("total distance between centerline of bearing:"))
+if (s_1 / s) < 0.175:
+    C_pm = 1
+elif (s_1 / s) >= 0.175:
+    C_pm = 1.1
+
+# C_e
+C_e = float(input("Enter 0.8 (gearing adjusted at assembly) or 1.0 (for all other conditions):"))
+
+# C_ma Commercial Condition
+C_ma = 0.127 + 0.0158 * F - (0.93 * (10)**(-4)) * F**(2)
+
+# Load distribution factor calculation
+K_m = 1 + (C_mc) * ((C_pf * C_pm) + (C_ma * C_e))
+
+# Rim thickness factor
+m_b = t / (adn + dedn)
+if m_b < 1.2:
+    K_b = 1.6 * (math.log(2.242 / m_b))
+elif m_b >= 1.2:
+    K_b = 1
+
+# Geometry Factor for Bending Stress
+J_p = float(input("Geometry factor J for the pinion:"))
+J_g = float(input("Geometry factor J for the gear:"))

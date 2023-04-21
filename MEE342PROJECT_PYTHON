@@ -230,3 +230,99 @@ elif m_b >= 1.2:
 # Geometry Factor for Bending Stress
 J_p = float(input("Geometry factor J for the pinion:"))
 J_g = float(input("Geometry factor J for the gear:"))
+
+# Elastic Coefficient
+C_p = (1 / (math.pi * (((1 - nu_p ** 2) / E_p) + ((1 - nu_g ** 2) / E_g)))) ** (1 / 2)
+
+# Surface Condition Factor
+C_f = 1  # assumed to be one unless otherwise stated
+
+# Geometry Factor for Pitting (contact resistance)
+m_g = N_g / N_p  # speed ratio
+I = ((math.cos(math.radians(phi_n)) * math.sin(math.radians(phi_n))) / 2) * (m_g / (m_g + 1))  # Geometry Factor
+
+# Temperature Factor
+K_t = 1
+
+# Reliability Factor
+if 0.5 < R < 0.99:
+    K_r = 0.658 - 0.0759 * math.log(1 - R)
+elif 0.99 <= R <= 0.9999:
+    K_r = 0.50 - 0.109 * math.log(1 - R)
+
+# Gear Bending Strength
+
+# Brinell Hardness
+material11 = input("From the material list, enter the corresponding letter: A = Grade 1 through-hardened steel, B = Grade 2 through-hardened steel:")
+if material11 == 'A':
+    H_b = (200 + 400) / 2  # taking the midrange value
+elif material11 == 'B':
+    H_b = (200 + 400) / 2
+else:
+    raise ValueError('invalid selection')
+
+# Bending Strength
+material12 = input("From the chosen material before, enter the same corresponding letter: A = Grade 1 through-hardened steel, B = Grade 2 through-hardened steel:")
+if material12 == 'A':
+    S_t = (77.3 * H_b) + 12800
+elif material12 == 'B':
+    S_t = (102 * H_b) + 16400
+else:
+    raise ValueError('invalid selection')
+
+# Contact Strength
+material13 = input("From the chosen material before, enter the same corresponding letter: A = Grade 1 through-hardened steel, B = Grade 2 through-hardened steel:")
+if material13 == 'A':
+    S_c = (322 * H_b) + 29100
+elif material13 == 'B':
+    S_c = (349 * H_b) + 34300
+else:
+    raise ValueError('invalid selection')
+
+# Number of Cycles for Design
+Num_Cycles = H * 60 * 24 * 365 * 10  # calculates the number of cycles from years of operation
+
+# Stress Cycle Factor for bending
+Y_n = 1.3558 * Num_Cycles ** (-0.0178)  # Stress Cycle factor
+
+# Stress Cycle Factor for pitting
+Z_n = 1.4488 * Num_Cycles ** (-0.0178)  # Stress Cycle factor
+
+# Note, these stress cycle factors assume the life cycle to be above 10^(7)!
+
+# Hardness Ratio Factor
+C_h = 1  # assumed to be one as the pinion and gear are of the same material
+
+# Governing Equations:
+
+# Gear
+BendingStressGear = (W_t)*(K_o)*(K_v)*(K_sg)*((P_d)/F)*((K_m)*(K_b)/J_g) # AGMA Bending Stress for gear
+
+ContactStressGear = (C_p)*((W_t)*(K_o)*(K_v)*(K_sg)*((K_m)*(C_f))/((d_p)*(F)*(I))) # AGMA Contact Stress for gear
+
+SafetyFactorBendingGear = ((S_t)*(Y_n))/((K_t)*(K_r)*BendingStressGear) # Safety Factor for Bending Stress for gear
+
+SafetyFactorContactGear = ((S_c)*(Z_n)*(C_h))/((K_t)*(K_r)*ContactStressGear) # Safety Factor for Contact Stress for gear
+
+GearWeight = density_g * Vol_g # gear weight in lbs
+
+# Pinion
+BendingStressPinion = (W_t)*(K_o)*(K_v)*(K_sp)*((P_d)/F)*((K_m)*(K_b)/J_p) # AGMA Bending Stress for pinion
+
+ContactStressPinion = (C_p)*((W_t)*(K_o)*(K_v)*(K_sp)*((K_m)*(C_f))/((d_p)*(F)*(I))) # AGMA Contact Stress for pinion
+
+SafetyFactorBendingPinion = ((S_t)*(Y_n))/((K_t)*(K_r)*BendingStressPinion) # Safety Factor for Bending Stress for pinion
+
+SafetyFactorContactPinion = ((S_c)*(Z_n)*(C_h))/((K_t)*(K_r)*ContactStressPinion) # Safety Factor for Contact Stress for pinion
+
+PinionWeight = density_p * Vol_p # pinion weight in lbs
+
+# Analysis
+if SafetyFactorBendingGear>(SafetyFactorContactGear)**(2):
+    print('The gear bending stress is significant compared to contact stress.')
+elif (SafetyFactorContactGear)**(2)>SafetyFactorBendingGear:
+    print('The gear contact stress is significant compared to bending stress.')
+elif SafetyFactorBendingPinion>(SafetyFactorContactPinion)**(2):
+    print('The pinion contact stress is significant compared to bending stress.')
+elif (SafetyFactorContactPinion)**(2)>SafetyFactorBendingPinion:
+    print('The pinion contact stress is significant compared to bending stress.')

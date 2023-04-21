@@ -8,6 +8,7 @@ Code for gear design MEE 342
 - Material Properties
   - Poisson Ratio for Pinion/Gear
   - Elastic Modulus for Pinion/Gear (ksi)
+  - Density (lb/ft^3)
 
 - Project Inputs
   - Load (rev/min)
@@ -24,3 +25,8 @@ Code for gear design MEE 342
   - Distance between gear and Midway
   - Total Distance between centerline of bearing
   - Geometry factors for gear/pinion (REFERENCE ATTACHED TABLE IN REPO FILES)
+
+# Outputs
+- Bending, Contact stresses in gear/pinion
+- Bending, Contact factors of safety
+- Weight

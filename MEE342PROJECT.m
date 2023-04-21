@@ -28,7 +28,7 @@ density_g = input("Desnity of gear material (lb/ft^3):"); %density of gear
 H = input("Load (rev/min):"); % Load
 hp = input("Horsepower (hp):"); % Horsepower
 R = input("Reliability:"); % Reliability
-K_o = input("Overload Factor:"); % Overload Factor 
+K_o = input("Overload Factor (obtain from table of overload factors):"); % Overload Factor 
 
 % Unquantifiable Risk
 n_d = input("Design Factor:"); % Design Factor

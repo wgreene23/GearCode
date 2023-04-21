@@ -44,7 +44,7 @@ dedn = 1.25/P_d; % dedendum
 rf = input("root fillet radius (in inches):"); % root fillet radius
 
 % Quality Number
-Q_v = input("Quality Number (from 1 to 6):"); % Quality Number
+Q_v = input("Quality Number (from 1 to 6):"); % Quality Number (with 1 being the lowest and 6 being the heighest quality)
 
 
 %% Auxilliary Equations

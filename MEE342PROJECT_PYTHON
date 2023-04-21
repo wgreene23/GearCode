@@ -1,5 +1,14 @@
 import numpy as np
+# Spur Gear Design Project
+# MEE 342 - Principals of Mechanical Engineering Design
+# Professor Yi Ren
+% Diego Torres, Matteo Orlando, Tyler Rokop, William Greene
 
+# Purpose 
+# The purpose of this code is to build a code capable of designing a spur
+# gear with given parameters
+
+# Design Decisions
 # Diametral Pitch and Face width
 P_d = float(input("Diametral Pitch (teeth/inch):"))  # Diametral Pitch
 F = float(input("Face Width (inches):"))  # Face Width

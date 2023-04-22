@@ -387,16 +387,6 @@ disp(['Bending Safety Factor for Pinion:', num2str(SafetyFactorBendingPinion)]) 
 disp(['Contact Safety Factor for Pinion:', num2str(SafetyFactorContactPinion)]) % AGMA Contact Stress for pinion
 
 
-if SafetyFactorBendingGear>(SafetyFactorContactGear)^(2)
-    disp('The gear bending stress is significant compared to contact stress.')
-elseif (SafetyFactorContactGear)^(2)>SafetyFactorBendingGear
-    disp('The gear contact stress is significant compared to bending stress.')
-elseif SafetyFactorBendingPinion>(SafetyFactorContactPinion)^(2)
-    disp('The pinion contact stress is significant compared to bending stress.')
-elseif (SafetyFactorContactPinion)^(2)>SafetyFactorBendingPinion
-    disp('The pinion contact stress is significant compared to bending stress.')
-end
-
 
 if SafetyFactorBendingGear>1.5
     disp('The gear bending stress is too high!')

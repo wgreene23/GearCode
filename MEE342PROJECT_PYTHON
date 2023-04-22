@@ -53,7 +53,7 @@ dedn = 1.25/P_d  # dedendum
 rf = float(input("Root fillet radius (in inches):"))  # root fillet radius
 
 # Quality Number
-Q_v = int(input("Quality Number (from 1 to 6):"))  # Quality Number (with 1 being the lowest and 6 being the heighest quality)
+Q_v = int(input("Quality Number (from 1 to 6):"))  # Quality Number (with 1 being the lowest and 6 being the highest quality)
 
 # Pinion Dimensions
 d_p = N_p/P_d  # inches

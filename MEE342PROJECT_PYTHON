@@ -344,11 +344,15 @@ print("Contact Safety Factor for Gear:",SafetyFactorContactGear) # AGMA Contact 
 print("Bending Safety Factor for Pinion:",SafetyFactorBendingPinion) # Safety Factor for Bending Stress for pinion
 print("Contact Safety Factor for Pinion:",SafetyFactorContactPinion) # AGMA Contact Stress for pinion
 
-if SafetyFactorBendingGear>(SafetyFactorContactGear)**(2):
-    print('The gear bending stress is significant compared to contact stress.')
-elif (SafetyFactorContactGear)**(2)>SafetyFactorBendingGear:
-    print('The gear contact stress is significant compared to bending stress.')
-elif SafetyFactorBendingPinion>(SafetyFactorContactPinion)**(2):
-    print('The pinion contact stress is significant compared to bending stress.')
-elif (SafetyFactorContactPinion)**(2)>SafetyFactorBendingPinion:
-    print('The pinion contact stress is significant compared to bending stress.')
+if SafetyFactorBendingGear > 1.5:
+    print('The gear bending stress is too high!')
+
+if SafetyFactorBendingPinion > 1.5:
+    print('The pinion bending stress is too high!')
+
+if SafetyFactorContactGear > 1.2:
+    print('The gear contact stress is too high!')
+
+if SafetyFactorContactPinion > 1.2:
+    print('The pinion contact stress is too high!')
+

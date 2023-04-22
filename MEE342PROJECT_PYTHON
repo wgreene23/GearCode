@@ -11,8 +11,17 @@ import math
 
 # Design Decisions
 # Diametral Pitch and Face width
+
 P_d = float(input("Diametral Pitch (teeth/inch):"))  # Diametral Pitch
-F = float(input("Face Width (inches):"))  # Face Width
+
+face_w_range = [3*np.pi/P_d, 5*np.pi/P_d]
+face_w_rec = 4*np.pi/P_d
+
+face_width_prompt = f"Face Width (inches), MUST BE BETWEEN {face_w_range[0]:.2f} and {face_w_range[1]:.2f}, and {face_w_rec:.2f} is recommended:"
+F = float(input(face_width_prompt)) # Face Width
+
+if not face_w_range[0] <= F <= face_w_range[1]:
+    print('Invalid Face Width, please run again. Face Width must be within acceptable range')
 
 # Pinion Material
 nu_p = float(input("Poisson's ratio of pinion:"))  # Poisson's ratio of pinion

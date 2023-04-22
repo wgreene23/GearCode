@@ -397,3 +397,20 @@ elseif (SafetyFactorContactPinion)^(2)>SafetyFactorBendingPinion
     disp('The pinion contact stress is significant compared to bending stress.')
 end
 
+
+if SafetyFactorBendingGear>1.5
+    disp('The gear bending stress is too high!')
+end
+
+if SafetyFactorBendingPinion>1.5
+    disp('The pinion bending stress is too high!')
+end
+
+if SafetyFactorContactGear>1.2
+    disp('The gear contact stress is too high!')
+end
+
+if SafetyFactorContactPinion>1.2
+    disp('The pinion contact stress is too high!')
+end
+

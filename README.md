@@ -34,6 +34,7 @@ Code for gear design MEE 342
 
 # Assumptions
 - m_b
-- Surface Condition Factor,  assumed to be 1 
-- Hardness Ratio Factor assumed to be 1 (Gear and Pinion assumed to be same material)
+- Surface Condition Factor, C_f, assumed to be 1 
+- Hardness Ratio Factor, C_h, assumed to be 1 (Gear and Pinion assumed to be same material)
 - Temperature Factor, K_t, assumed to be 1 (Operating at room temp)
+- Stress Cycle Factors depend on the life of the gears, which is assumed be be greater than 10^7 cylces (1 rev = 1 cycle)

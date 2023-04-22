@@ -34,7 +34,7 @@ K_o = input("Overload Factor (obtain from table of overload factors):"); % Overl
 n_d = input("Design Factor:"); % Design Factor
 
 % Tooth System
-phi_n = input("Normal Pressure Angle (in degrees):"); % Normal Pressure Angle
+phi_n = input("Normal Pressure Angle (in degrees):"); % Normal Pressure Angle (typically 20 degrees)
 N_p = input("Number of teeth on pinion:"); % Number of teeth on pinion
 N_g = input("Number of teeth on gear:"); % Number of teeth on gear
 

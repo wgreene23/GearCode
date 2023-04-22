@@ -2,7 +2,7 @@ import numpy as np
 # Spur Gear Design Project
 # MEE 342 - Principals of Mechanical Engineering Design
 # Professor Yi Ren
-% Diego Torres, Matteo Orlando, Tyler Rokop, William Greene
+# Diego Torres, Matteo Orlando, Tyler Rokop, William Greene
 
 # Purpose 
 # The purpose of this code is to build a code capable of designing a spur

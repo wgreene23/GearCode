@@ -48,6 +48,7 @@ Code for Gear Design MEE 342
 
 # Note
 - The overload factor is up to the user to decide, but we found that with the wind loadings, we recommend the highest value of 2.25
+- The through hardened steel properties needs to be researched prior!
 
 # References
 - Budynas, Richard G., et al. Shigley's Mechanical Engineering Design. McGraw-Hill Education, 2021. 

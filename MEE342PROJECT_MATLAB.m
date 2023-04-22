@@ -360,6 +360,10 @@ SafetyFactorContactPinion = ((S_c)*(Z_n)*(C_h))/((K_t)*(K_r)*ContactStressPinion
 PinionWeight = density_p * Vol_p % pinion weight in lbs
 
 %% Analysis
+
+disp(['Gear weight:', num2str(GearWeight)]) % gear weight in lbs
+disp(['Pinion weight:', num2str(PinionWeight)]) % pinion weight in lbs
+
 disp(['Bending stress for gear:', num2str(BendingStressGear)]) % AGMA Bending Stress for gear
 disp(['Contact Stress for gear:', num2str(ContactStressGear)]) % AGMA Contact Stress for gear
 

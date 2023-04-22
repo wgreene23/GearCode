@@ -1,5 +1,5 @@
 # GearCode
-Code for gear design MEE 342
+Code for Gear Design MEE 342
 
 # Inputs
 - Diametral Pitch

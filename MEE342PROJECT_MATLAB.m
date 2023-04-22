@@ -20,7 +20,7 @@ F = input(face_width_prompt); % Face Width
 
 F_check = discretize(F,face_w_range);
 if F_check ~= 1
-    disp('Invalid Face Width, please clear workspace and run again. Face Width must be within acceptable range')
+    disp('Invalid Face Width, please run again. Face Width must be within acceptable range')
 end
 
 % Pinion Material

@@ -360,6 +360,18 @@ SafetyFactorContactPinion = ((S_c)*(Z_n)*(C_h))/((K_t)*(K_r)*ContactStressPinion
 PinionWeight = density_p * Vol_p % pinion weight in lbs
 
 %% Analysis
+disp(['Bending stress for gear:', num2str(BendingStressGear)]) % AGMA Bending Stress for gear
+disp(['Contact Stress for gear:', num2str(ContactStressGear)]) % AGMA Contact Stress for gear
+
+disp(['Bending stress for pinion:', num2str(BendingStressPinion)]) % AGMA Bending Stress for pinion
+disp(['Contact Stress for pinion:', num2str(ContactStressPinion)]) % AGMA Contact Stress for pinion
+
+disp(['Bending Safety Factor for Gear:', num2str(SafetyFactorBendingGear)]) % Safety Factor for Bending Stress for gear
+disp(['Contact Safety Factor for Gear:', num2str(SafetyFactorContactGear)]) % AGMA Contact Stress for gear
+
+disp(['Bending Safety Factor for Pinion:', num2str(SafetyFactorBendingPinion)]) % Safety Factor for Bending Stress for pinion
+disp(['Contact Safety Factor for Pinion:', num2str(SafetyFactorContactPinion)]) % AGMA Contact Stress for pinion
+
 
 if SafetyFactorBendingGear>(SafetyFactorContactGear)^(2)
     disp('The gear bending stress is significant compared to contact stress.')

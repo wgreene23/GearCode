@@ -22,10 +22,10 @@ Code for gear design MEE 342
   - Number of teeth on gear 
   - Root fillet radius (inches)
   - Quality Number
-  - Distance between gear and Midway
-  - Total Distance between centerline of bearing
+  - Distance between gear and Midway (from bearing/key)
+  - Total Distance between centerline of bearing (from bearing/key)
   - Geometry factors for gear/pinion (REFERENCE ATTACHED TABLE IN REPO FILES)
-  - Type of material (Grade 1/2 through hardened steel)
+  - Type of material (Grade 1 or 2 through hardened steel)
 
 # Outputs
 - Bending, Contact stresses in gear/pinion
@@ -33,3 +33,7 @@ Code for gear design MEE 342
 - Weight
 
 # Assumptions
+- m_b
+- Surface Condition Factor,  assumed to be 1 
+- Hardness Ratio Factor assumed to be 1 (Gear and Pinion assumed to be same material)
+- Temperature Factor, K_t, assumed to be 1 (Operating at room temp)

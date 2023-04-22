@@ -11,7 +11,17 @@
 
 % Diametral Pitch and Face width
 P_d = input("Diametral Pitch (teeth/inch):"); % Diametral Pitch
-F = input("Face Width (inches):"); % Face Width
+
+face_w_range = [3*pi/P_d, 5*pi/P_d];
+face_w_rec = 4*pi/P_d;
+face_width_prompt = sprintf('Face Width (inches), MUST BE BETWEEN %.2f and %.2f, and %.2f is recommended:',face_w_range,face_w_rec);
+
+F = input(face_width_prompt); % Face Width
+
+F_check = discretize(F,face_w_range);
+if F_check ~= 1
+    disp('Invalid Face Width, please clear workspace and run again. Face Width must be within acceptable range')
+end
 
 % Pinion Material
 nu_p = input("Poisson's ratio of pinion:"); % Poisson's ratio of pinion

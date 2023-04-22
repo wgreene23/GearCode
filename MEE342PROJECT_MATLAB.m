@@ -66,7 +66,7 @@ d_p = N_p/P_d; % inches
 
 d_ref_p = (P_d * N_p)/12; % ref circle diameter converted to feet
 
-Vol_p = (pi/4) * (d_ref_p^2) * F; % used for finding weight
+Vol_p = (pi/4) * (d_ref_p^2) * (F/12); % used for finding weight
 
 % Gear Dimensions
 
@@ -74,7 +74,7 @@ d_g = N_g/P_d; % inches
 
 d_ref_g = (P_d * N_g)/12; % ref circle diameter converted to feet
 
-Vol_g = (pi/4) * (d_ref_g^2) * F; % used for finding weight
+Vol_g = (pi/4) * (d_ref_g^2) * (F/12); % used for finding weight
 
 
 % Various Factors for Calculations:

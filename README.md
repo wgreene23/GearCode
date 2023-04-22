@@ -44,5 +44,4 @@ Code for gear design MEE 342
 # Limitations
 - The Gear and Pinion are of the same material
 - User dependent for optimazation
-- 
-- 
+- Number of teeth for the pinion and gear must be of the common values included in table 14-2 from the book

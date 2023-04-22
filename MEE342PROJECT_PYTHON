@@ -34,7 +34,7 @@ K_o = float(input("Overload Factor (obtain from table of overload factors):"))  
 n_d = float(input("Design Factor:"))  # Design Factor
 
 # Tooth System
-phi_n = float(input("Normal Pressure Angle (in degrees):"))  # Normal Pressure Angle
+phi_n = float(input("Normal Pressure Angle (in degrees):"))  # Normal Pressure Angle (typically 20 degrees)
 N_p = int(input("Number of teeth on pinion:"))  # Number of teeth on pinion
 N_g = int(input("Number of teeth on gear:"))  # Number of teeth on gear
 

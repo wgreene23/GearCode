@@ -25,6 +25,7 @@ Code for gear design MEE 342
   - Distance between gear and Midway
   - Total Distance between centerline of bearing
   - Geometry factors for gear/pinion (REFERENCE ATTACHED TABLE IN REPO FILES)
+  - Type of material (
 
 # Outputs
 - Bending, Contact stresses in gear/pinion

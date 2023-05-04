@@ -369,7 +369,7 @@ PinionWeight = density_p * Vol_p % pinion weight in lbs
 
 %% Analysis
 
-disp(['Gear weight:', num2str(GearWeight)]) % gear weight in lbs
+%disp(['Gear weight:', num2str(GearWeight)]) % gear weight in lbs
 disp(['Pinion weight:', num2str(PinionWeight)]) % pinion weight in lbs
 
 disp(['Bending stress for gear:', num2str(BendingStressGear)]) % AGMA Bending Stress for gear

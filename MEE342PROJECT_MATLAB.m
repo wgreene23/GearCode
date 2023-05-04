@@ -36,12 +36,11 @@ density_g = input("Desnity of gear material (lb/ft^3):"); %density of gear
 
 % Function
 H = input("Load (rev/min):"); % Load
-hp = input("Horsepower (hp):"); % Horsepower
 R = input("Reliability:"); % Reliability
 K_o = input("Overload Factor (obtain from table of overload factors):"); % Overload Factor 
 
 % Unquantifiable Risk
-n_d = input("Design Factor:"); % Design Factor
+n_d = input("Design Factor (assumed to be unity):"); % Design Factor
 
 % Tooth System
 phi_n = input("Normal Pressure Angle (in degrees):"); % Normal Pressure Angle (typically 20 degrees)
@@ -51,7 +50,6 @@ N_g = input("Number of teeth on gear:"); % Number of teeth on gear
 adn = 1/P_d; % addendum
 dedn = 1.25/P_d; % dedendum
 
-rf = input("root fillet radius (in inches):"); % root fillet radius
 
 % Quality Number
 Q_v = input("Quality Number (from 1 to 6):"); % Quality Number (with 1 being the lowest and 6 being the heighest quality)
@@ -64,7 +62,8 @@ Q_v = input("Quality Number (from 1 to 6):"); % Quality Number (with 1 being the
 
 d_p = N_p/P_d; % inches
 
-d_ref_p = (P_d * N_p)/12; % ref circle diameter converted to feet
+%d_ref_p = (P_d * N_p)/12; % ref circle diameter converted to feet
+d_ref_p = (N_p/P_d)/12; 
 
 Vol_p = (pi/4) * (d_ref_p^2) * (F/12); % used for finding weight
 
@@ -72,7 +71,7 @@ Vol_p = (pi/4) * (d_ref_p^2) * (F/12); % used for finding weight
 
 d_g = N_g/P_d; % inches
 
-d_ref_g = (P_d * N_g)/12; % ref circle diameter converted to feet
+d_ref_g = (N_g/P_d)/12; % ref circle diameter converted to feet
 
 Vol_g = (pi/4) * (d_ref_g^2) * (F/12); % used for finding weight
 
@@ -388,19 +387,19 @@ disp(['Contact Safety Factor for Pinion:', num2str(SafetyFactorContactPinion)]) 
 
 
 
-if SafetyFactorBendingGear>1.5
-    disp('The gear bending stress is too high!')
+if SafetyFactorBendingGear<1.5
+    disp('The gear bending stress is too low!')
 end
 
-if SafetyFactorBendingPinion>1.5
-    disp('The pinion bending stress is too high!')
+if SafetyFactorBendingPinion<1.5
+    disp('The pinion bending stress is too low!')
 end
 
-if SafetyFactorContactGear>1.2
-    disp('The gear contact stress is too high!')
+if SafetyFactorContactGear<1.2
+    disp('The gear contact stress is too low!')
 end
 
-if SafetyFactorContactPinion>1.2
-    disp('The pinion contact stress is too high!')
+if SafetyFactorContactPinion<1.2
+    disp('The pinion contact stress is too low!')
 end
 

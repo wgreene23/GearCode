@@ -327,7 +327,7 @@ PinionWeight = density_p * Vol_p # pinion weight in lbs
 
 # Analysis
 
-print("Gear Weight:",GearWeight) # Gear weight in pounds
+#print("Gear Weight:",GearWeight) # Gear weight in pounds
 print("Pinion Weight:",PinionWeight) # Pinion weight in pounds
 
 print("Bending stress for gear:",BendingStressGear) # AGMA Bending Stress for gear

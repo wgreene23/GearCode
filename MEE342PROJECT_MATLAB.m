@@ -62,18 +62,17 @@ Q_v = input("Quality Number (from 1 to 6):"); % Quality Number (with 1 being the
 
 d_p = N_p/P_d; % inches
 
-%d_ref_p = (P_d * N_p)/12; % ref circle diameter converted to feet
-d_ref_p = (N_p/P_d)/12; 
+modulus_p = (P_d/N_p)/12; % modulus of pinion converted to feet
 
-Vol_p = (pi/4) * (d_ref_p^2) * (F/12); % used for finding weight
+Vol_p = (pi/4) * (modulus_p^2) * ((N_p)^2)*(F/12); % volume of pinion
 
 % Gear Dimensions
 
 d_g = N_g/P_d; % inches
 
-d_ref_g = (N_g/P_d)/12; % ref circle diameter converted to feet
+%d_ref_g = (N_g/P_d)/12; % ref circle diameter converted to feet
 
-Vol_g = (pi/4) * (d_ref_g^2) * (F/12); % used for finding weight
+%Vol_g = (pi/4) * (d_ref_g^2) * (F/12); % used for finding weight
 
 
 % Various Factors for Calculations:
@@ -355,7 +354,7 @@ SafetyFactorBendingGear = ((S_t)*(Y_n))/((K_t)*(K_r)*BendingStressGear); % Safet
  
 SafetyFactorContactGear = ((S_c)*(Z_n)*(C_h))/((K_t)*(K_r)*ContactStressGear); % Safety Factor for Contact Stress for gear
 
-GearWeight = density_g * Vol_g % gear weight in lbs
+%GearWeight = density_g * Vol_g % gear weight in lbs
 
 % Pinion
 BendingStressPinion = (W_t)*(K_o)*(K_v)*(K_sp)*((P_d)/F)*((K_m)*(K_b)/J_p); % AGMA Bending Stress for pinion

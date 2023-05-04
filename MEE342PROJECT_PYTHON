@@ -35,7 +35,6 @@ density_g = float(input("Density of gear material (lb/ft^3):"))  # density of ge
 
 # Function
 H = float(input("Load (rev/min):"))  # Load
-hp = float(input("Horsepower (hp):"))  # Horsepower
 R = float(input("Reliability:"))  # Reliability
 K_o = float(input("Overload Factor (obtain from table of overload factors):"))  # Overload Factor 
 
@@ -50,7 +49,6 @@ N_g = int(input("Number of teeth on gear:"))  # Number of teeth on gear
 adn = 1/P_d  # addendum
 dedn = 1.25/P_d  # dedendum
 
-rf = float(input("Root fillet radius (in inches):"))  # root fillet radius
 
 # Quality Number
 Q_v = int(input("Quality Number (from 1 to 6):"))  # Quality Number (with 1 being the lowest and 6 being the highest quality)
@@ -344,15 +342,15 @@ print("Contact Safety Factor for Gear:",SafetyFactorContactGear) # AGMA Contact 
 print("Bending Safety Factor for Pinion:",SafetyFactorBendingPinion) # Safety Factor for Bending Stress for pinion
 print("Contact Safety Factor for Pinion:",SafetyFactorContactPinion) # AGMA Contact Stress for pinion
 
-if SafetyFactorBendingGear > 1.5:
-    print('The gear bending stress is too high!')
+if SafetyFactorBendingGear < 1.5:
+    print('The gear bending stress is too low!')
 
-if SafetyFactorBendingPinion > 1.5:
-    print('The pinion bending stress is too high!')
+if SafetyFactorBendingPinion < 1.5:
+    print('The pinion bending stress is too low!')
 
-if SafetyFactorContactGear > 1.2:
-    print('The gear contact stress is too high!')
+if SafetyFactorContactGear < 1.2:
+    print('The gear contact stress is too low!')
 
-if SafetyFactorContactPinion > 1.2:
-    print('The pinion contact stress is too high!')
+if SafetyFactorContactPinion < 1.2:
+    print('The pinion contact stress is too low!')
 

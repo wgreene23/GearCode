@@ -12,7 +12,6 @@ Code for Gear Design MEE 342
 
 - Project Inputs
   - Load (rev/min)
-  - Horsepower
   - Reliability
   - Overload Factor (REFERENCE ATTACHED TABLE IN REPO FILES)
 
@@ -20,7 +19,6 @@ Code for Gear Design MEE 342
   - Normal Pressure Angle (degrees) (20º is common in industry!)
   - Number of teeth on pinion
   - Number of teeth on gear 
-  - Root fillet radius (inches)
   - Quality Number
   - Distance between gear and Midway (from bearing/key)
   - Total Distance between centerline of bearing (from bearing/key)
